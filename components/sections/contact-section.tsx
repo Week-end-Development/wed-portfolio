@@ -1,5 +1,8 @@
 import { SendIcon } from '@/components/icons/system-icons';
 
+const DEFAULT_CONTACT_FORM_ACTION =
+  'https://formsubmit.co/wed.devs@gmail.com';
+
 type ContactSectionProps = {
   formAction?: string;
   lang: 'pl' | 'en';
@@ -35,7 +38,7 @@ const contactContent = {
 } as const;
 
 export function ContactSection({
-  formAction = 'https://formspree.io/f/REPLACE_ME',
+  formAction = DEFAULT_CONTACT_FORM_ACTION,
   lang,
 }: ContactSectionProps) {
   const t = contactContent[lang];
@@ -67,6 +70,13 @@ export function ContactSection({
           </div>
 
           <form action={formAction} className="space-y-6" method="POST">
+            <input
+              name="_subject"
+              type="hidden"
+              value="Nowa wiadomosc z formularza WED"
+            />
+            <input name="_captcha" type="hidden" value="false" />
+            <input name="_template" type="hidden" value="table" />
             <input
               aria-hidden="true"
               autoComplete="off"

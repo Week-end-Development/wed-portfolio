@@ -91,7 +91,7 @@ const copyCodeButtonScript = String.raw`(() => {
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
-    default: 'WED Landing Page - Dark Mode Tech Portfolio',
+    default: 'WED | Landing Page',
     template: '%s | WED',
   },
   description:
@@ -109,7 +109,7 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US'],
     url: '/',
     siteName: 'WEEK-END DEVELOPMENT',
-    title: 'WED Landing Page - Dark Mode Tech Portfolio',
+    title: 'WED | Landing Page',
     description:
       'Week-end Development — projekty tworzone po godzinach. Landing page w stylu dark-tech.',
   },

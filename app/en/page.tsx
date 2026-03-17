@@ -8,7 +8,7 @@ import { HeroSection } from '@/components/sections/hero-section';
 import { TeamSection } from '@/components/sections/team-section';
 
 export const metadata: Metadata = {
-  title: 'WED Landing Page - Dark Mode Tech Portfolio',
+  title: 'WED | Landing Page',
   description:
     'Week-end Development — projects built after hours. Dark-tech style landing page.',
   alternates: {
