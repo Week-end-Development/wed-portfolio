@@ -1,6 +1,7 @@
 import NextImage from 'next/image';
 import Link from 'next/link';
 import { LanguageSwitch } from '@/components/ui/language-switch';
+import { getPublicAssetPath } from '@/lib/public-asset-path';
 
 type NavbarProps = {
   lang: 'pl' | 'en';
@@ -39,7 +40,7 @@ export function Navbar({ lang }: NavbarProps) {
                   className="h-full w-full object-cover"
                   height={40}
                   priority
-                  src="/images/wed-logo.webp"
+                  src={getPublicAssetPath('/images/wed-logo.webp')}
                   unoptimized
                   width={40}
                 />

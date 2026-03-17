@@ -13,6 +13,7 @@ import {
   ArrowRightAltIcon,
   SettingsSuggestIcon,
 } from '@/components/icons/system-icons';
+import { getPublicAssetPath } from '@/lib/public-asset-path';
 
 type DashboardSectionProps = {
   lang: 'pl' | 'en';
@@ -200,7 +201,7 @@ export function DashboardSection({ lang }: DashboardSectionProps) {
                       className="h-auto max-h-30 w-auto max-w-42.5 object-contain opacity-95 transition-transform duration-500 group-hover:scale-[1.03]"
                       height={100}
                       priority={false}
-                      src="/images/hss-logo-dark.webp"
+                      src={getPublicAssetPath('/images/hss-logo-dark.webp')}
                       unoptimized
                       width={170}
                     />
