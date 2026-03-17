@@ -54,7 +54,7 @@ export function HeroSection({ lang }: HeroSectionProps) {
         aria-hidden="true"
         className="absolute top-1/2 left-4 origin-left -rotate-90"
       >
-        <span className="block h-[1px] w-28 bg-primary/50" />
+        <span className="block h-px w-28 bg-primary/50" />
       </div>
 
       <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
