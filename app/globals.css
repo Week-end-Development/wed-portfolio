@@ -1,0 +1,437 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7d1d63;
+  --color-primary_hover: #952376;
+  --color-background-light: #f8f6f7;
+  --color-background-dark: #0f0b12;
+  --color-surface-light: #ffffff;
+  --color-surface-dark: #16111a;
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+
+  --radius-default: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+}
+
+body {
+  background-color: #0f0b12;
+  color: #e0e0e0;
+}
+
+.blueprint-bg {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(125, 29, 99, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(125, 29, 99, 0.07) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    black 40%,
+    transparent 100%
+  );
+}
+
+.bg-blueprint-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(125, 29, 99, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(125, 29, 99, 0.1) 1px, transparent 1px);
+}
+
+.blueprint-bg-active {
+  position: fixed;
+  inset: 0;
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(125, 29, 99, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(125, 29, 99, 0.25) 1px, transparent 1px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(
+    circle at center,
+    black 60%,
+    transparent 100%
+  );
+}
+
+.card-trigger:hover ~ .blueprint-bg-active,
+.card-trigger:hover .blueprint-bg-active-local {
+  opacity: 1;
+}
+
+body:has(.card-trigger:hover) .blueprint-bg-active {
+  opacity: 0.4;
+}
+
+.glass-panel {
+  background: rgba(22, 17, 26, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(125, 29, 99, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tech-card {
+  background: rgba(22, 17, 26, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.tech-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #7d1d63;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px #7d1d63, 0 0 20px #7d1d63;
+}
+
+.tech-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(125, 29, 99, 0.3);
+  background: rgba(22, 17, 26, 0.8);
+}
+
+.tech-card:hover::after {
+  transform: scaleX(1);
+}
+
+.mono-accent {
+  font-family: var(--font-jetbrains-mono), monospace;
+  letter-spacing: -0.05em;
+}
+
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.2)
+    );
+  background-size: 100% 4px;
+  pointer-events: none;
+  opacity: 0.15;
+  z-index: 50;
+}
+
+.project-img-placeholder {
+  background-image: radial-gradient(circle, #333 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+@keyframes typing-cursor {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes typing-line-1 {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+
+  15% {
+    width: 100%;
+    opacity: 1;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes typing-line-2 {
+  0%,
+  15% {
+    width: 0;
+    opacity: 0;
+  }
+
+  16% {
+    opacity: 1;
+  }
+
+  30% {
+    width: 100%;
+    opacity: 1;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes typing-line-3 {
+  0%,
+  30% {
+    width: 0;
+    opacity: 0;
+  }
+
+  31% {
+    opacity: 1;
+  }
+
+  45% {
+    width: 100%;
+    opacity: 1;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes typing-line-4 {
+  0%,
+  45% {
+    width: 0;
+    opacity: 0;
+  }
+
+  46% {
+    opacity: 1;
+  }
+
+  60% {
+    width: 100%;
+    opacity: 1;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes typing-line-5 {
+  0%,
+  60% {
+    width: 0;
+    opacity: 0;
+  }
+
+  61% {
+    opacity: 1;
+  }
+
+  75% {
+    width: 100%;
+    opacity: 1;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.typewriter-line {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  opacity: 0;
+  border-right: 2px solid transparent;
+}
+
+.line-1 {
+  animation: typing-line-1 5s steps(30, end) infinite;
+  animation-delay: 0s;
+}
+
+.line-2 {
+  animation: typing-line-2 5s steps(30, end) infinite;
+  animation-delay: 0s;
+}
+
+.line-3 {
+  animation: typing-line-3 5s steps(30, end) infinite;
+  animation-delay: 0s;
+}
+
+.line-4 {
+  animation: typing-line-4 5s steps(30, end) infinite;
+  animation-delay: 0s;
+}
+
+.line-5 {
+  animation: typing-line-5 5s steps(30, end) infinite;
+  animation-delay: 0s;
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background-color: #7d1d63;
+  animation: typing-cursor 0.8s infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+@keyframes header-logo-scale {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(0.85);
+  }
+}
+
+@keyframes header-logo-glow {
+  from {
+    filter: drop-shadow(0 0 0 transparent);
+    border-color: rgba(125, 29, 99, 0.5);
+  }
+
+  to {
+    filter: drop-shadow(0 0 8px #7d1d63);
+    border-color: #7d1d63;
+  }
+}
+
+@keyframes header-text-compact {
+  0% {
+    opacity: 1;
+    width: auto;
+    max-width: 200px;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    width: 0;
+    max-width: 0;
+    margin-left: 0;
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes header-text-reveal {
+  0% {
+    opacity: 0;
+    max-width: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    max-width: 50px;
+    transform: translateY(0);
+  }
+}
+
+.scroll-header-logo {
+  animation: header-logo-scale linear both, header-logo-glow linear both;
+  animation-timeline: scroll();
+  animation-range: 0 150px;
+}
+
+.scroll-header-text-full {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: header-text-compact linear both;
+  animation-timeline: scroll();
+  animation-range: 0 100px;
+}
+
+.scroll-header-text-short {
+  animation: header-text-reveal linear both;
+  animation-timeline: scroll();
+  animation-range: 0 150px;
+}
+
+/* Mobile paint/compositing optimization batch */
+@media (max-width: 768px) {
+  .blueprint-bg {
+    background-size: 56px 56px;
+    background-image:
+      linear-gradient(to right, rgba(125, 29, 99, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(125, 29, 99, 0.05) 1px, transparent 1px);
+    mask-image: radial-gradient(circle at center, black 55%, transparent 100%);
+    -webkit-mask-image: radial-gradient(
+      circle at center,
+      black 55%,
+      transparent 100%
+    );
+  }
+
+  .bg-blueprint-grid {
+    background-size: 56px 56px;
+    background-image:
+      linear-gradient(to right, rgba(125, 29, 99, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(125, 29, 99, 0.06) 1px, transparent 1px);
+  }
+
+  .blueprint-bg-active {
+    display: none;
+  }
+
+  .scanline {
+    opacity: 0.06 !important;
+    background-size: 100% 6px;
+    mix-blend-mode: normal !important;
+  }
+
+  .glass-panel {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .tech-card::after {
+    box-shadow: 0 0 6px #7d1d63;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-header-logo,
+  .scroll-header-text-full,
+  .scroll-header-text-short,
+  .line-1,
+  .line-2,
+  .line-3,
+  .line-4,
+  .line-5,
+  .cursor-blink {
+    animation: none !important;
+  }
+
+  .typewriter-line {
+    width: auto;
+    opacity: 1;
+  }
+}
