@@ -67,7 +67,7 @@ const teamContent = {
       {
         initials: 'KB',
         operator: 'OP_02',
-        name: 'Kacper BoŚ',
+        name: 'Kacper Boś',
         role: '[ Arch_AWS ]',
         quote: '"Architecture of scalable database schemas and cloud infrastructure."',
         links: [
