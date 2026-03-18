@@ -1,7 +1,4 @@
-'use client';
-
 import { SendIcon } from '@/components/icons/system-icons';
-import { FormEvent, useState } from 'react';
 
 const DEFAULT_CONTACT_FORM_ACTION =
   'https://formsubmit.co/wed.devs@gmail.com';
@@ -11,8 +8,6 @@ type ContactSectionProps = {
   lang: 'pl' | 'en';
 };
 
-type SubmitStatus = 'idle' | 'success' | 'error';
-
 function toAjaxAction(action: string): string {
   const trimmed = action.trim();
 
@@ -21,18 +16,6 @@ function toAjaxAction(action: string): string {
   }
 
   return trimmed;
-}
-
-function formDataToPayload(formData: FormData): Record<string, string> {
-  const payload: Record<string, string> = {};
-
-  for (const [key, value] of formData.entries()) {
-    if (typeof value === 'string') {
-      payload[key] = value;
-    }
-  }
-
-  return payload;
 }
 
 const contactContent = {
@@ -77,54 +60,6 @@ export function ContactSection({
   lang,
 }: ContactSectionProps) {
   const t = contactContent[lang];
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
-
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    if (isSubmitting) {
-      return;
-    }
-
-    const form = event.currentTarget;
-    const endpoint = toAjaxAction(formAction);
-    const formData = new FormData(form);
-    const payload = formDataToPayload(formData);
-
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const responseData = (await response.json().catch(() => null)) as
-        | { success?: boolean | string }
-        | null;
-
-      if (
-        !response.ok ||
-        responseData?.success === false ||
-        responseData?.success === 'false'
-      ) {
-        throw new Error('Request failed');
-      }
-
-      form.reset();
-      setSubmitStatus('success');
-    } catch {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <section className="relative border-t border-white/5 py-24" id="contact">
@@ -155,8 +90,9 @@ export function ContactSection({
           <form
             action={formAction}
             className="space-y-6"
+            data-ajax-endpoint={toAjaxAction(formAction)}
+            data-ajax-form="true"
             method="POST"
-            onSubmit={handleSubmit}
           >
             <input
               name="_subject"
@@ -229,28 +165,23 @@ export function ContactSection({
 
             <button
               className="flex w-full items-center justify-center gap-2 border border-transparent bg-primary px-8 py-4 font-mono text-sm font-bold uppercase tracking-wider text-white transition-all hover:border-white/20 hover:bg-primary_hover disabled:cursor-not-allowed disabled:opacity-70"
-              disabled={isSubmitting}
+              data-label-idle={t.button}
+              data-label-loading={t.sending}
+              data-submit-button="true"
               type="submit"
             >
               <SendIcon className="h-4 w-4" />
-              {isSubmitting ? t.sending : t.button}
+              <span data-submit-label="true">{t.button}</span>
             </button>
 
             <p
               aria-live="polite"
-              className={`font-mono text-[11px] ${
-                submitStatus === 'success'
-                  ? 'text-green-400'
-                  : submitStatus === 'error'
-                    ? 'text-red-400'
-                    : 'text-gray-500'
-              }`}
+              className="font-mono text-[11px] text-gray-500"
+              data-form-status="true"
+              data-status-error={t.error}
+              data-status-success={t.success}
             >
-              {submitStatus === 'success'
-                ? t.success
-                : submitStatus === 'error'
-                  ? t.error
-                  : '\u00A0'}
+              {'\u00A0'}
             </p>
           </form>
         </div>

@@ -301,79 +301,6 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
   margin-left: 2px;
 }
 
-@keyframes header-logo-scale {
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(0.85);
-  }
-}
-
-@keyframes header-logo-glow {
-  from {
-    filter: drop-shadow(0 0 0 transparent);
-    border-color: rgba(125, 29, 99, 0.5);
-  }
-
-  to {
-    filter: drop-shadow(0 0 8px #7d1d63);
-    border-color: #7d1d63;
-  }
-}
-
-@keyframes header-text-compact {
-  0% {
-    opacity: 1;
-    width: auto;
-    max-width: 200px;
-    transform: translateX(0);
-  }
-
-  100% {
-    opacity: 0;
-    width: 0;
-    max-width: 0;
-    margin-left: 0;
-    transform: translateX(-10px);
-  }
-}
-
-@keyframes header-text-reveal {
-  0% {
-    opacity: 0;
-    max-width: 0;
-    transform: translateY(10px);
-  }
-
-  100% {
-    opacity: 1;
-    max-width: 50px;
-    transform: translateY(0);
-  }
-}
-
-.scroll-header-logo {
-  animation: header-logo-scale linear both, header-logo-glow linear both;
-  animation-timeline: scroll();
-  animation-range: 0 150px;
-}
-
-.scroll-header-text-full {
-  overflow: hidden;
-  white-space: nowrap;
-  animation: header-text-compact linear both;
-  animation-timeline: scroll();
-  animation-range: 0 100px;
-}
-
-.scroll-header-text-short {
-  animation: header-text-reveal linear both;
-  animation-timeline: scroll();
-  animation-range: 0 150px;
-}
-
 /* Mobile paint/compositing optimization batch */
 @media (max-width: 768px) {
   .blueprint-bg {
@@ -432,9 +359,6 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .scroll-header-logo,
-  .scroll-header-text-full,
-  .scroll-header-text-short,
   .line-1,
   .line-2,
   .line-3,
