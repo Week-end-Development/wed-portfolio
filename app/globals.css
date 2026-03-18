@@ -155,17 +155,17 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
 
 @keyframes typing-line-1 {
   0% {
-    width: 0;
+    clip-path: inset(0 100% 0 0);
     opacity: 1;
   }
 
   15% {
-    width: 100%;
+    clip-path: inset(0 0 0 0);
     opacity: 1;
   }
 
   100% {
-    width: 100%;
+    clip-path: inset(0 0 0 0);
     opacity: 1;
   }
 }
@@ -173,7 +173,7 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
 @keyframes typing-line-2 {
   0%,
   15% {
-    width: 0;
+    clip-path: inset(0 100% 0 0);
     opacity: 0;
   }
 
@@ -182,12 +182,12 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
   }
 
   30% {
-    width: 100%;
+    clip-path: inset(0 0 0 0);
     opacity: 1;
   }
 
   100% {
-    width: 100%;
+    clip-path: inset(0 0 0 0);
     opacity: 1;
   }
 }
@@ -195,7 +195,7 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
 @keyframes typing-line-3 {
   0%,
   30% {
-    width: 0;
+    clip-path: inset(0 100% 0 0);
     opacity: 0;
   }
 
@@ -204,12 +204,12 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
   }
 
   45% {
-    width: 100%;
+    clip-path: inset(0 0 0 0);
     opacity: 1;
   }
 
   100% {
-    width: 100%;
+    clip-path: inset(0 0 0 0);
     opacity: 1;
   }
 }
@@ -217,7 +217,7 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
 @keyframes typing-line-4 {
   0%,
   45% {
-    width: 0;
+    clip-path: inset(0 100% 0 0);
     opacity: 0;
   }
 
@@ -226,12 +226,12 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
   }
 
   60% {
-    width: 100%;
+    clip-path: inset(0 0 0 0);
     opacity: 1;
   }
 
   100% {
-    width: 100%;
+    clip-path: inset(0 0 0 0);
     opacity: 1;
   }
 }
@@ -239,7 +239,7 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
 @keyframes typing-line-5 {
   0%,
   60% {
-    width: 0;
+    clip-path: inset(0 100% 0 0);
     opacity: 0;
   }
 
@@ -248,22 +248,25 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
   }
 
   75% {
-    width: 100%;
+    clip-path: inset(0 0 0 0);
     opacity: 1;
   }
 
   100% {
-    width: 100%;
+    clip-path: inset(0 0 0 0);
     opacity: 1;
   }
 }
 
 .typewriter-line {
+  display: block;
   overflow: hidden;
   white-space: nowrap;
-  width: 0;
+  width: max-content;
   opacity: 0;
+  clip-path: inset(0 100% 0 0);
   border-right: 2px solid transparent;
+  will-change: clip-path, opacity;
 }
 
 .line-1 {
@@ -350,6 +353,7 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
   .typewriter-line {
     width: auto;
     opacity: 1;
+    clip-path: inset(0 0 0 0);
   }
 }
 
@@ -366,5 +370,6 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
   .typewriter-line {
     width: auto;
     opacity: 1;
+    clip-path: inset(0 0 0 0);
   }
 }
