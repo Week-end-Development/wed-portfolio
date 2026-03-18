@@ -6,8 +6,12 @@ import { ContactSection } from '@/components/sections/contact-section';
 import { DashboardSection } from '@/components/sections/dashboard-section';
 import { HeroSection } from '@/components/sections/hero-section';
 import { TeamSection } from '@/components/sections/team-section';
+import { getLandingPageJsonLd } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
+  title: 'Week-end Development | Strony i aplikacje webowe',
+  description:
+    'Tworzymy nowoczesne strony i aplikacje webowe w Next.js, NestJS, PostgreSQL i AWS.',
   alternates: {
     canonical: '/',
     languages: {
@@ -16,8 +20,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
+    title: 'Week-end Development | Strony i aplikacje webowe',
+    description:
+      'Tworzymy nowoczesne strony i aplikacje webowe w Next.js, NestJS, PostgreSQL i AWS.',
     locale: 'pl_PL',
     url: '/',
+  },
+  twitter: {
+    title: 'Week-end Development | Strony i aplikacje webowe',
+    description:
+      'Tworzymy nowoczesne strony i aplikacje webowe w Next.js, NestJS, PostgreSQL i AWS.',
   },
 };
 
@@ -33,6 +45,7 @@ export default function HomePage() {
       <main
         className="relative overflow-x-hidden bg-background-dark font-sans text-gray-300 antialiased selection:bg-primary selection:text-white"
         id="top"
+        lang="pl"
       >
         <HeroSection lang="pl" />
         <DashboardSection lang="pl" />
@@ -42,6 +55,10 @@ export default function HomePage() {
       </main>
 
       <Footer lang="pl" />
+      <script
+        dangerouslySetInnerHTML={{ __html: getLandingPageJsonLd('pl') }}
+        type="application/ld+json"
+      />
     </>
   );
 }

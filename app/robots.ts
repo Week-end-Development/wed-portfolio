@@ -5,6 +5,7 @@ export const dynamic = 'force-static';
 
 export default function robots(): MetadataRoute.Robots {
   const siteUrl = getSiteUrl();
+  const basePath = siteUrl.pathname === '/' ? '' : siteUrl.pathname.replace(/\/$/, '');
 
   return {
     rules: [
@@ -13,7 +14,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: `${siteUrl.origin}/sitemap.xml`,
+    sitemap: `${siteUrl.origin}${basePath}/sitemap.xml`,
     host: siteUrl.origin,
   };
 }

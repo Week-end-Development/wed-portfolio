@@ -18,6 +18,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteUrl = getSiteUrl();
+const defaultTitle =
+  'Week-end Development | Strony i aplikacje webowe Next.js, NestJS, AWS';
+const defaultDescription =
+  'Tworzymy nowoczesne strony i aplikacje webowe: Next.js, NestJS, PostgreSQL i AWS. Projekty od koncepcji po wdrozenie.';
 const copyCodeButtonScript = String.raw`(() => {
   const resetTimers = new WeakMap();
 
@@ -235,17 +239,37 @@ const copyCodeButtonScript = String.raw`(() => {
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
+  applicationName: 'WEEK-END DEVELOPMENT',
   title: {
-    default: 'WED | Landing Page',
+    default: defaultTitle,
     template: '%s | WED',
   },
-  description:
-    'Week-end Development — projekty tworzone po godzinach. Landing page w stylu dark-tech.',
+  description: defaultDescription,
+  keywords: [
+    'tworzenie stron internetowych',
+    'tworzenie aplikacji webowych',
+    'Next.js',
+    'NestJS',
+    'PostgreSQL',
+    'AWS',
+    'frontend',
+    'backend',
+    'full stack',
+  ],
+  authors: [
+    {
+      name: 'WEEK-END DEVELOPMENT',
+    },
+  ],
+  creator: 'WEEK-END DEVELOPMENT',
+  publisher: 'WEEK-END DEVELOPMENT',
+  category: 'technology',
   alternates: {
     canonical: '/',
     languages: {
       'pl-PL': '/',
       'en-US': '/en/',
+      'x-default': '/',
     },
   },
   openGraph: {
@@ -254,13 +278,33 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US'],
     url: '/',
     siteName: 'WEEK-END DEVELOPMENT',
-    title: 'WED | Landing Page',
-    description:
-      'Week-end Development — projekty tworzone po godzinach. Landing page w stylu dark-tech.',
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [
+      {
+        url: '/images/wed-logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Week-end Development logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: defaultTitle,
+    description: defaultDescription,
+    images: ['/images/wed-logo.webp'],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
   },
 };
 

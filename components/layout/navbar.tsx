@@ -54,6 +54,10 @@ export function Navbar({ lang }: NavbarProps) {
             </Link>
           </div>
 
+          <div className="md:hidden">
+            <LanguageSwitch lang={lang} />
+          </div>
+
           <div className="hidden items-center space-x-6 md:flex">
             <a
               className="font-mono text-xs uppercase tracking-widest text-gray-400 transition-colors hover:text-primary"
