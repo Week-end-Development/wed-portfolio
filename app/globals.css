@@ -304,16 +304,12 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
 /* Mobile paint/compositing optimization batch */
 @media (max-width: 768px) {
   .blueprint-bg {
-    background-size: 56px 56px;
+    background-size: 64px 64px;
     background-image:
-      linear-gradient(to right, rgba(125, 29, 99, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(125, 29, 99, 0.05) 1px, transparent 1px);
-    mask-image: radial-gradient(circle at center, black 55%, transparent 100%);
-    -webkit-mask-image: radial-gradient(
-      circle at center,
-      black 55%,
-      transparent 100%
-    );
+      linear-gradient(to right, rgba(125, 29, 99, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(125, 29, 99, 0.04) 1px, transparent 1px);
+    mask-image: none;
+    -webkit-mask-image: none;
   }
 
   .bg-blueprint-grid {
@@ -328,14 +324,13 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
   }
 
   .scanline {
-    opacity: 0.06 !important;
-    background-size: 100% 6px;
-    mix-blend-mode: normal !important;
+    display: none;
   }
 
   .glass-panel {
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(22, 17, 26, 0.9);
     box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
   }
 
