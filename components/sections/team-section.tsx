@@ -2,6 +2,28 @@ type TeamSectionProps = {
   lang: 'pl' | 'en';
 };
 
+function getMemberLinkAriaLabel(
+  lang: 'pl' | 'en',
+  label: string,
+  memberName: string,
+): string {
+  const shortLabel = label.replace(/\[|\]/g, '').toUpperCase();
+
+  if (shortLabel === 'GH') {
+    return lang === 'pl'
+      ? `Profil GitHub: ${memberName}`
+      : `GitHub profile: ${memberName}`;
+  }
+
+  if (shortLabel === 'LI') {
+    return lang === 'pl'
+      ? `Profil LinkedIn: ${memberName}`
+      : `LinkedIn profile: ${memberName}`;
+  }
+
+  return `${label} ${memberName}`;
+}
+
 const teamContent = {
   pl: {
     title: 'Nasz Zespół',
@@ -134,7 +156,8 @@ export function TeamSection({ lang }: TeamSectionProps) {
               <div className="flex gap-4">
                 {member.links.map((link) => (
                   <a
-                    key={link.label}
+                    key={`${member.name}-${link.label}`}
+                    aria-label={getMemberLinkAriaLabel(lang, link.label, member.name)}
                     className="font-mono text-sm text-gray-600 transition-colors hover:text-primary"
                     href={link.href}
                     rel="noreferrer"
