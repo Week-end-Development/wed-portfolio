@@ -32,7 +32,7 @@ export function Navbar({ lang }: NavbarProps) {
           <div className="flex items-center gap-3">
             <Link
               className="group flex cursor-pointer items-center"
-              href={lang === 'pl' ? '/' : '/en'}
+              href="#top"
             >
               <div className="mr-3 flex h-10 w-10 items-center justify-center overflow-hidden rounded border border-primary/50 bg-primary/10 transition-colors group-hover:border-primary">
                 <NextImage

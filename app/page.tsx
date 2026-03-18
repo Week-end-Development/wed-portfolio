@@ -30,7 +30,10 @@ export default function HomePage() {
 
       <Navbar lang="pl" />
 
-      <main className="relative overflow-x-hidden bg-background-dark font-sans text-gray-300 antialiased selection:bg-primary selection:text-white">
+      <main
+        className="relative overflow-x-hidden bg-background-dark font-sans text-gray-300 antialiased selection:bg-primary selection:text-white"
+        id="top"
+      >
         <HeroSection lang="pl" />
         <DashboardSection lang="pl" />
         <AboutSection lang="pl" />

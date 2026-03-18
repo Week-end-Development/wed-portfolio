@@ -33,7 +33,10 @@ export default function EnglishHomePage() {
 
       <Navbar lang="en" />
 
-      <main className="relative overflow-x-hidden bg-background-dark font-sans text-gray-300 antialiased selection:bg-primary selection:text-white">
+      <main
+        className="relative overflow-x-hidden bg-background-dark font-sans text-gray-300 antialiased selection:bg-primary selection:text-white"
+        id="top"
+      >
         <HeroSection lang="en" />
         <DashboardSection lang="en" />
         <AboutSection lang="en" />
