@@ -55,6 +55,23 @@ const copyCodeButtonScript = String.raw`(() => {
       return;
     }
 
+    const scrollTopLink = target.closest('[data-scroll-top]');
+
+    if (scrollTopLink instanceof HTMLAnchorElement) {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      if (window.location.hash) {
+        window.history.replaceState(
+          null,
+          '',
+          window.location.pathname + window.location.search,
+        );
+      }
+
+      return;
+    }
+
     const button = target.closest('[data-copy-code]');
 
     if (!(button instanceof HTMLButtonElement)) {

@@ -33,6 +33,12 @@ const stackItems = [
     iconClass: 'h-4 w-4',
   },
   {
+    name: 'TYPESCRIPT',
+    subtitle: 'TYPE_SAFETY',
+    icon: Code2,
+    iconClass: 'h-3.5 w-3.5',
+  },
+  {
     name: 'NESTJS',
     subtitle: 'API_GATEWAY',
     icon: Server,
@@ -67,7 +73,7 @@ const projectsContent = {
       'Projekt aktualnie w trakcie tworzenia. Repozytorium rozwojowe systemu rozwijanego przez Week-end Development.',
     projectLinkAria:
       'Otwórz repozytorium projektu Harcerski System Stopni na GitHub',
-    tags: ['WIP', 'GitHub', 'Repo'],
+    tags: ['WIP', 'GITHUB', 'NEXT.JS', 'NESTJS'],
     sourceCode: 'KOD_ŹRÓDŁOWY',
     processes: 'PROCESY_W_TOKU',
     creating: 'Tworzenie nowych projektów',
@@ -92,7 +98,7 @@ const projectsContent = {
       'Project currently under development. Development repository of the system built by Week-end Development.',
     projectLinkAria:
       'Open Scout Rank System project repository on GitHub',
-    tags: ['WIP', 'GitHub', 'Repo'],
+    tags: ['WIP', 'GITHUB', 'NEXT.JS', 'NESTJS'],
     sourceCode: 'SOURCE_CODE',
     processes: 'PROCESSES_IN_PROGRESS',
     creating: 'Creating new projects',

@@ -415,6 +415,20 @@ body:has(.card-trigger:hover) .blueprint-bg-active {
   .tech-card::after {
     box-shadow: 0 0 6px #7d1d63;
   }
+
+  /* Mobile: keep terminal code readable without costly width animations */
+  .line-1,
+  .line-2,
+  .line-3,
+  .line-4,
+  .line-5 {
+    animation: none !important;
+  }
+
+  .typewriter-line {
+    width: auto;
+    opacity: 1;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

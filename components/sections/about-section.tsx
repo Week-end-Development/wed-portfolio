@@ -1,8 +1,8 @@
 import {
   CodeIcon,
   LightbulbIcon,
-  RocketLaunchIcon,
 } from '@/components/icons/system-icons';
+import { Rocket } from 'lucide-react';
 
 type AboutSectionProps = {
   lang: 'pl' | 'en';
@@ -68,7 +68,7 @@ function AboutCardIcon({ icon }: { icon: 'lightbulb' | 'code' | 'rocket' }) {
     return <CodeIcon className="h-6 w-6" />;
   }
 
-  return <RocketLaunchIcon className="h-6 w-6" />;
+  return <Rocket className="h-6 w-6" strokeWidth={1.8} />;
 }
 
 export function AboutSection({ lang }: AboutSectionProps) {
